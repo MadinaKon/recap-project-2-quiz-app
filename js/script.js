@@ -37,15 +37,11 @@ function toggleButtons() {
   }
 }
 
-
 bookmarkIcon.addEventListener("click", () => {
   toggleFirstBookmark();
-  console.log("bookmarkIcon ", bookmarkIcon);
 });
 
 showAnswerButton.addEventListener("click", () => {
-  console.log("showAnswerButton clicked");
-  //   toggleButtons();
   questionCardAnswer.toggleAttribute("hidden");
   toggleButtons();
 });
