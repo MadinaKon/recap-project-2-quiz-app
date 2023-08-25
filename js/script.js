@@ -1,5 +1,8 @@
 const card = document.querySelector('[data-js="question-card"]');
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
+const showAnswerButton = document.querySelector(
+  '[data-js="question-card__button"]'
+);
 
 let bookmarkClicked = false;
 
@@ -20,7 +23,23 @@ function toggleFirstBookmark() {
   }
 }
 
+function toggleAnswer() {
+  if (
+    showAnswerButton.style.display === "none" ||
+    showAnswerButton.innerHTML === "show answer"
+  ) {
+    showAnswerButton.innerHTML = "Hide answer";
+  } else {
+    showAnswerButton.innerHTML = "show answer";
+  }
+}
+
 bookmarkIcon.addEventListener("click", (event) => {
   toggleFirstBookmark();
   console.log("bookmarkIcon ", bookmarkIcon);
+});
+
+showAnswerButton.addEventListener("click", () => {
+  console.log("showAnswerButton clicked");
+  toggleAnswer();
 });
