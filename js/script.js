@@ -5,6 +5,7 @@ const showAnswerButton = document.querySelector(
 );
 
 let bookmarkClicked = false;
+let showAnswerClicked = true;
 
 card.addEventListener("click", () => {
   console.log("card is clicked");
@@ -24,17 +25,17 @@ function toggleFirstBookmark() {
 }
 
 function toggleAnswer() {
-  if (
-    showAnswerButton.style.display === "none" ||
-    showAnswerButton.innerHTML === "show answer"
-  ) {
+  if (showAnswerClicked) {
     showAnswerButton.innerHTML = "Hide answer";
+    showAnswerClicked = false;
+    return;
   } else {
     showAnswerButton.innerHTML = "show answer";
+    showAnswerClicked = true;
   }
 }
 
-bookmarkIcon.addEventListener("click", (event) => {
+bookmarkIcon.addEventListener("click", () => {
   toggleFirstBookmark();
   console.log("bookmarkIcon ", bookmarkIcon);
 });
