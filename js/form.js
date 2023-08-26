@@ -8,14 +8,24 @@ addNewForm.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(formData);
   console.log("dataForm: ", dataForm);
 
-  const newCard = document.createElement("section");
-  newCard.classList.add("card");
+  const newCard = document.createElement("div");
+  newCard.classList.add("form-card");
 
-  const questionCard = document.createElement("p");
-  console.log("qq ", dataForm["form-question"]);
+  const questionCard = document.createElement("h2");
+  questionCard.classList.add("form-card__title");
   questionCard.textContent = dataForm["form-question"];
 
+  const answerCard = document.createElement("p");
+  answerCard.classList.add("form-card__answer");
+  answerCard.textContent = dataForm["form-answer"];
+
+  const tagCard = document.createElement("div");
+  tagCard.classList.add("form-card__tags");
+  tagCard.textContent = dataForm["tag"];
+
   newCard.append(questionCard);
+  newCard.append(answerCard);
+  newCard.append(tagCard);
 
   cardContainer.append(newCard);
 
