@@ -1,5 +1,12 @@
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
+const questionTextarea = document.querySelector('[data-js="form-question"]');
+const answerTextarea = document.querySelector('[data-js="form-answer"]');
+
+const questionTextareaMaxLength = questionTextarea.getAttribute("maxlength");
+const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
+
+const amountLeft = document.querySelector('[data-js="amountLeft"]');
 
 addNewForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -13,10 +20,12 @@ addNewForm.addEventListener("submit", (e) => {
 
   const questionCard = document.createElement("h2");
   questionCard.classList.add("form-card__title");
+
   questionCard.textContent = dataForm["form-question"];
 
   const answerCard = document.createElement("p");
   answerCard.classList.add("form-card__answer");
+
   answerCard.textContent = dataForm["form-answer"];
 
   const tagCard = document.createElement("div");
@@ -30,4 +39,20 @@ addNewForm.addEventListener("submit", (e) => {
   cardContainer.append(newCard);
 
   addNewForm.reset();
+
+  dataForm["form-question"].focus();
+});
+
+const updateAmountLeft = (value) => {
+  amountLeft.innerText = value;
+};
+
+// updateAmountLeft(questionTextareaMaxLength);
+// updateAmountLeft(answerTextareaMaxLength);
+
+questionTextarea.addEventListener("input", (e) => {
+  updateAmountLeft(questionTextareaMaxLength - e.target.value.length);
+});
+answerTextarea.addEventListener("input", (e) => {
+  updateAmountLeft(answerTextareaMaxLength - e.target.value.length);
 });
