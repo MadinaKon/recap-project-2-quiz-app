@@ -32,15 +32,21 @@ addNewForm.addEventListener("submit", (e) => {
   tagCard.classList.add("form-card__tags");
   tagCard.textContent = dataForm["tag"];
 
+  const bookmarkIconCard = document.createElement("img");
+  bookmarkIconCard.classList.add("question-card__icon");
+  bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
+  bookmarkIconCard.setAttribute("alt", "bookmark icon");
+
   newCard.append(questionCard);
   newCard.append(answerCard);
   newCard.append(tagCard);
+  newCard.append(bookmarkIconCard);
 
   cardContainer.append(newCard);
 
   addNewForm.reset();
 
-  dataForm["form-question"].focus();
+  // dataForm["form-question"].focus();
 });
 
 const updateAmountLeft = (value) => {
