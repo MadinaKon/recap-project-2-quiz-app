@@ -1,4 +1,5 @@
-.question-card__icon {
+.question-card__icon,
+.form-card-card__icon {
   position: absolute;
   height: 50px;
   right: 0;
