@@ -47,12 +47,10 @@ const updateAmountLeft = (value) => {
   amountLeft.innerText = value;
 };
 
-// updateAmountLeft(questionTextareaMaxLength);
-// updateAmountLeft(answerTextareaMaxLength);
-
 questionTextarea.addEventListener("input", (e) => {
   updateAmountLeft(questionTextareaMaxLength - e.target.value.length);
 });
+
 answerTextarea.addEventListener("input", (e) => {
   updateAmountLeft(answerTextareaMaxLength - e.target.value.length);
 });
