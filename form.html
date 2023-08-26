@@ -11,29 +11,36 @@
       <h1>Quiz App</h1>
     </header>
     <main>
-      <form
-        aria-labelledby="form-heading"
-        aria-describedby="form-description"
-        class="form-card"
-        data-js="add-new-form-card"
-      >
-        <fieldset>
-          <!-- Textarea: label & input -->
-          <label for="form-question">Your question:</label>
-          <br />
-          <textarea name="form-question" id="form-question" rows="5" cols="33">
-          </textarea>
-          <br />
-          <label for="form-answer">Your answer:</label> <br />
-          <textarea name="form-question" id="form-answer" rows="5" cols="33">
-          </textarea>
-          <br />
-          <label for="tag">Tag:</label>
-          <input type="text" id="tag" name="tag" /> <br />
+      <section data-js="card-container">
+        <form
+          aria-labelledby="form-heading"
+          aria-describedby="form-description"
+          class="form-card"
+          data-js="add-new-form-card"
+        >
+          <fieldset>
+            <!-- Textarea: label & input -->
+            <label for="form-question">Your question:</label>
+            <br />
+            <textarea
+              name="form-question"
+              id="form-question"
+              rows="5"
+              cols="33"
+            >
+            </textarea>
+            <br />
+            <label for="form-answer">Your answer:</label> <br />
+            <textarea name="form-answer" id="form-answer" rows="5" cols="33">
+            </textarea>
+            <br />
+            <label for="tag">Tag:</label>
+            <input type="text" name="tag" id="tag" /> <br />
 
-          <button type="submit">SUBMIT</button>
-        </fieldset>
-      </form>
+            <button type="submit">SUBMIT</button>
+          </fieldset>
+        </form>
+      </section>
     </main>
     <footer class="footer">
       <a href="index.html" class="footer__link">
