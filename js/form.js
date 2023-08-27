@@ -19,6 +19,26 @@ addNewForm.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(formData);
   console.log("dataForm: ", dataForm);
 
+
+  
+    // <section class="question-card" data-js="question-card">
+  //       <img class="question-card__icon" data-js="question-card__icon" src="./assets/bookmark_filled.png" alt="bookmark">
+  //       <h2 class="question-card__title">
+  //         What property flips the axes of flexbox
+  //       </h2>
+  //       <button class="question-card__button" data-js="question-card__button">hide answer</button>
+  //       <p class="question-card__answer" data-js="question-card__answer" hidden="">
+  //         I am an answer
+  //       </p>
+  //       <div class="question-card__tags">
+  //         <div class="question-card__tag">#html</div>
+  //         <div class="question-card__tag">#css</div>
+  //         <div class="question-card__tag">#flexbox</div>
+  //       </div>
+  //     </section>
+
+
+
   const newCard = document.createElement("div");
   newCard.classList.add("form-card");
 
