@@ -4,6 +4,7 @@ const bookmarkIcon = document.querySelector(".question-card__icon");
 const showAnswerButton = document.querySelector(
   '[data-js="question-card__button"]'
 );
+
 const questionCardAnswer = document.querySelector(
   '[data-js="question-card__answer"]'
 );

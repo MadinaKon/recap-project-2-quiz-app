@@ -41,10 +41,16 @@ addNewForm.addEventListener("submit", (e) => {
   bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
   bookmarkIconCard.setAttribute("alt", "bookmark icon");
 
+  const buttonCard = document.createElement("button");
+  buttonCard.classList.add("question-card__button");
+  buttonCard.setAttribute("data-js", "question-card__button");
+  buttonCard.textContent = "show answer";
+
   newCard.append(questionCard);
   newCard.append(answerCard);
   newCard.append(tagCard);
   newCard.append(bookmarkIconCard);
+  newCard.append(buttonCard);
 
   cardContainer.append(newCard);
 
