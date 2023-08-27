@@ -19,47 +19,37 @@ addNewForm.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(formData);
   console.log("dataForm: ", dataForm);
 
+  const newCard = document.createElement("section");
+  newCard.classList.add("question-card");
+  newCard.setAttribute("data-js", "question-card");
 
-  
-    // <section class="question-card" data-js="question-card">
-  //       <img class="question-card__icon" data-js="question-card__icon" src="./assets/bookmark_filled.png" alt="bookmark">
-  //       <h2 class="question-card__title">
-  //         What property flips the axes of flexbox
-  //       </h2>
-  //       <button class="question-card__button" data-js="question-card__button">hide answer</button>
-  //       <p class="question-card__answer" data-js="question-card__answer" hidden="">
-  //         I am an answer
-  //       </p>
-  //       <div class="question-card__tags">
-  //         <div class="question-card__tag">#html</div>
-  //         <div class="question-card__tag">#css</div>
-  //         <div class="question-card__tag">#flexbox</div>
-  //       </div>
-  //     </section>
-
-
-
-  const newCard = document.createElement("div");
-  newCard.classList.add("form-card");
+  const bookmarkIconCard = document.createElement("img");
+  bookmarkIconCard.classList.add("question-card__icon");
+  bookmarkIconCard.setAttribute("data-js", "question-card__icon");
+  // img src="./assets/bookmark_filled.png"
+  bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
+  bookmarkIconCard.setAttribute("alt", "bookmark");
 
   const questionCard = document.createElement("h2");
-  questionCard.classList.add("form-card__title");
+  questionCard.classList.add("question-card__title");
 
   questionCard.textContent = dataForm["form-question"];
 
   const answerCard = document.createElement("p");
-  answerCard.classList.add("form-card__answer");
+  answerCard.classList.add("question-card__answer");
+  // bookmarkIconCard.setAttribute("data-js", "question-card__answer");
+  bookmarkIconCard.setAttribute("data-js", "question-card__icon");
+
+  // bookmarkIconCard.setAttribute("hidden", "");
 
   answerCard.textContent = dataForm["form-answer"];
 
+  const tagsCard = document.createElement("div");
+  tagsCard.classList.add("question-card__tags");
   const tagCard = document.createElement("div");
-  tagCard.classList.add("form-card__tags");
+  tagCard.classList.add("question-card__tag");
   tagCard.textContent = dataForm["tag"];
-
-  const bookmarkIconCard = document.createElement("img");
-  bookmarkIconCard.classList.add("question-card__icon");
-  bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
-  bookmarkIconCard.setAttribute("alt", "bookmark icon");
+  tagsCard.append(tagCard);
 
   const buttonCard = document.createElement("button");
   buttonCard.classList.add("question-card__button");
