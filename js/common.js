@@ -1,6 +1,5 @@
 const card = document.querySelector('[data-js="question-card"]');
-// const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
-const bookmarkIcon = document.querySelector(".question-card__icon");
+const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 const showAnswerButton = document.querySelector(
   '[data-js="question-card__button"]'
 );

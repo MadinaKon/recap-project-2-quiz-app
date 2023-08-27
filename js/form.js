@@ -12,6 +12,10 @@ const amountLeft = document.querySelector('[data-js="amountLeft"]');
 
 const bookmarkIcon = document.querySelector(".question-card__icon");
 
+if (bookmarkIcon) {
+  toggleFirstBookmark();
+}
+
 addNewForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -37,12 +41,13 @@ addNewForm.addEventListener("submit", (e) => {
 
   const answerCard = document.createElement("p");
   answerCard.classList.add("question-card__answer");
-  // bookmarkIconCard.setAttribute("data-js", "question-card__answer");
+  answerCard.setAttribute("data-js", "question-card__answer");
+  answerCard.setAttribute("hidden", "");
+  answerCard.textContent = dataForm["form-answer"];
+
   bookmarkIconCard.setAttribute("data-js", "question-card__icon");
 
   // bookmarkIconCard.setAttribute("hidden", "");
-
-  answerCard.textContent = dataForm["form-answer"];
 
   const tagsCard = document.createElement("div");
   tagsCard.classList.add("question-card__tags");
@@ -56,11 +61,18 @@ addNewForm.addEventListener("submit", (e) => {
   buttonCard.setAttribute("data-js", "question-card__button");
   buttonCard.textContent = "show answer";
 
+  const buttonCardHide = document.createElement("button");
+  buttonCardHide.classList.add("question-card__button");
+  buttonCardHide.setAttribute("data-js", "question-card__button");
+  buttonCardHide.setAttribute("hidden", "");
+  buttonCardHide.textContent = "hide answer";
+
   newCard.append(questionCard);
   newCard.append(answerCard);
   newCard.append(tagCard);
   newCard.append(bookmarkIconCard);
   newCard.append(buttonCard);
+  newCard.append(buttonCardHide);
 
   cardContainer.append(newCard);
 
@@ -69,11 +81,13 @@ addNewForm.addEventListener("submit", (e) => {
   // dataForm["form-question"].focus();
 });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   toggleButtons();
+//   toggleFirstBookmark();
+// });
 toggleButtons();
+toggleFirstBookmark();
 
-if (bookmarkIcon) {
-  toggleFirstBookmark();
-}
 const updateAmountLeft = (value) => {
   amountLeft.innerText = value;
 };
