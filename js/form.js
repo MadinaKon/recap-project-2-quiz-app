@@ -1,3 +1,5 @@
+import { toggleFirstBookmark, toggleButtons } from "./common.js";
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
 const questionTextarea = document.querySelector('[data-js="form-question"]');
@@ -7,6 +9,8 @@ const questionTextareaMaxLength = questionTextarea.getAttribute("maxlength");
 const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
 
 const amountLeft = document.querySelector('[data-js="amountLeft"]');
+
+const bookmarkIcon = document.querySelector(".question-card__icon");
 
 addNewForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -49,6 +53,11 @@ addNewForm.addEventListener("submit", (e) => {
   // dataForm["form-question"].focus();
 });
 
+toggleButtons();
+
+if (bookmarkIcon) {
+  toggleFirstBookmark();
+}
 const updateAmountLeft = (value) => {
   amountLeft.innerText = value;
 };
