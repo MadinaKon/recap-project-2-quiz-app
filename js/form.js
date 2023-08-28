@@ -1,6 +1,6 @@
 // import { toggleFirstBookmark, toggleButtons } from "./common.js";
 
-import { toggleFirstBookmark } from "./common.js";
+// import { toggleFirstBookmark } from "./common.js";
 const card = document.querySelector('[data-js="question-card"]');
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
@@ -15,11 +15,8 @@ const amountLeft = document.querySelector('[data-js="amountLeft"]');
 
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 
+let bookmarkClicked = false;
 let showAnswerClicked = true;
-
-if (bookmarkIcon) {
-  toggleFirstBookmark();
-}
 
 addNewForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -32,12 +29,18 @@ addNewForm.addEventListener("submit", (e) => {
   newCard.classList.add("question-card");
   newCard.setAttribute("data-js", "question-card");
 
-  const bookmarkIconCard = document.createElement("img");
-  bookmarkIconCard.classList.add("question-card__icon");
-  bookmarkIconCard.setAttribute("data-js", "question-card__icon");
-  // img src="./assets/bookmark_filled.png"
-  bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
-  bookmarkIconCard.setAttribute("alt", "bookmark");
+  // const bookmarkIconCard = document.createElement("img");
+  // bookmarkIconCard.classList.add("question-card__icon");
+  // bookmarkIconCard.setAttribute("data-js", "question-card__icon");
+  // // img src="./assets/bookmark_filled.png"
+  // bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
+  // bookmarkIconCard.setAttribute("alt", "bookmark");
+
+  const bookmarkIcon = document.createElement("img");
+  bookmarkIcon.classList.add("question-card__icon");
+  bookmarkIcon.setAttribute("data-js", "question-card__icon");
+  bookmarkIcon.setAttribute("src", "./assets/bookmark.png");
+  bookmarkIcon.setAttribute("alt", "bookmark");
 
   const questionCard = document.createElement("h2");
   questionCard.classList.add("question-card__title");
@@ -50,7 +53,7 @@ addNewForm.addEventListener("submit", (e) => {
   answerCard.setAttribute("hidden", "");
   answerCard.textContent = dataForm["form-answer"];
 
-  bookmarkIconCard.setAttribute("data-js", "question-card__icon");
+  bookmarkIcon.setAttribute("data-js", "question-card__icon");
 
   // bookmarkIconCard.setAttribute("hidden", "");
 
@@ -69,7 +72,7 @@ addNewForm.addEventListener("submit", (e) => {
   newCard.append(questionCard);
   newCard.append(answerCard);
   newCard.append(tagCard);
-  newCard.append(bookmarkIconCard);
+  newCard.append(bookmarkIcon);
   newCard.append(showAnswerButton);
 
   cardContainer.append(newCard);
@@ -78,6 +81,10 @@ addNewForm.addEventListener("submit", (e) => {
 
   showAnswerButton.addEventListener("click", () => {
     toggleButtons();
+  });
+
+  bookmarkIcon.addEventListener("click", () => {
+    toggleFirstBookmark();
   });
 
   function toggleButtons() {
@@ -90,13 +97,23 @@ addNewForm.addEventListener("submit", (e) => {
     }
   }
 
+  function toggleFirstBookmark() {
+    let bookmarkImage = "./assets/bookmark.png";
+    let bookmarkImageFilled = "./assets/bookmark_filled.png";
+
+    console.log("toggleFirstBookmark is clicked");
+
+    if (bookmarkClicked) {
+      bookmarkIcon.setAttribute("src", bookmarkImage);
+      bookmarkClicked = false;
+    } else {
+      bookmarkIcon?.setAttribute("src", bookmarkImageFilled);
+      bookmarkClicked = true;
+    }
+  }
+
   // dataForm["form-question"].focus();
 });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   toggleButtons();
-//   toggleFirstBookmark();
-// });
 
 // toggleFirstBookmark();
 
