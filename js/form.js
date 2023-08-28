@@ -1,3 +1,5 @@
+import { toggleButtons } from "./toggleButtons.js";
+
 const card = document.querySelector('[data-js="question-card"]');
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
@@ -71,22 +73,12 @@ addNewForm.addEventListener("submit", (e) => {
 
   showAnswerButton.addEventListener("click", () => {
     questionCardAnswer.toggleAttribute("hidden");
-    toggleButtons();
+    toggleButtons(showAnswerClicked, showAnswerButton);
   });
 
   bookmarkIcon.addEventListener("click", () => {
     toggleFirstBookmark();
   });
-
-  function toggleButtons() {
-    if (showAnswerClicked) {
-      showAnswerButton.textContent = "hide answer";
-      showAnswerClicked = false;
-    } else {
-      showAnswerButton.textContent = "show answer";
-      showAnswerClicked = true;
-    }
-  }
 
   function toggleFirstBookmark() {
     let bookmarkImage = "./assets/bookmark.png";
