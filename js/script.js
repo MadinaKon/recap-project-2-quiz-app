@@ -1,5 +1,3 @@
-import { toggleFirstBookmark } from "./common.js";
-// import { toggleButtons } from "./toggleButtons.js";
+// import { toggleFirstBookmark } from "./common.js";
 
-toggleFirstBookmark();
-// toggleButtons();
+// toggleFirstBookmark();

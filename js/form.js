@@ -1,6 +1,5 @@
 import { toggleButtons } from "./toggleButtons.js";
 
-const card = document.querySelector('[data-js="question-card"]');
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
@@ -13,9 +12,9 @@ const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
 const amountLeft = document.querySelector('[data-js="amountLeft"]');
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 
-const questionCardAnswer = document.querySelector(
-  '[data-js="question-card__answer"]'
-);
+// const questionCardAnswer = document.querySelector(
+//   '[data-js="question-card__answer"]'
+// );
 
 let bookmarkClicked = false;
 let showAnswerClicked = true;
