@@ -1,4 +1,4 @@
-import { toggleButtons } from "./toggleButtons.js";
+import { toggleButtons, toggleFirstBookmark } from "./toggleButtons.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
@@ -75,22 +75,33 @@ addNewForm.addEventListener("submit", (e) => {
     toggleButtons(showAnswerClicked, showAnswerButton);
   });
 
-  bookmarkIcon.addEventListener("click", () => {
-    toggleFirstBookmark();
+  bookmarkIcon.addEventListener("click", (event) => {
+    //toggleFirstBookmark();
+    // console.log("bookmarkIcon ", bookmarkIcon);
+    // console.log("bookmarkClicked ", bookmarkClicked);
+    // toggleFirstBookmark(bookmarkClicked, bookmarkIcon);
+
+    event.preventDefault();
+    let bookmarkImage = event.target.attributes.src.value;
+
+    if (bookmarkImage === "./assets/bookmark.png") {
+      return bookmarkIcon.setAttribute("src", "./assets/bookmark_filled.png");
+    }
+    return bookmarkIcon.setAttribute("src", "./assets/bookmark.png");
   });
 
-  function toggleFirstBookmark() {
-    let bookmarkImage = "./assets/bookmark.png";
-    let bookmarkImageFilled = "./assets/bookmark_filled.png";
+  // function toggleFirstBookmark() {
+  //   let bookmarkImage = "./assets/bookmark.png";
+  //   let bookmarkImageFilled = "./assets/bookmark_filled.png";
 
-    if (bookmarkClicked) {
-      bookmarkIcon.setAttribute("src", bookmarkImage);
-      bookmarkClicked = false;
-    } else {
-      bookmarkIcon?.setAttribute("src", bookmarkImageFilled);
-      bookmarkClicked = true;
-    }
-  }
+  //   if (bookmarkClicked) {
+  //     bookmarkIcon.setAttribute("src", bookmarkImage);
+  //     bookmarkClicked = false;
+  //   } else {
+  //     bookmarkIcon?.setAttribute("src", bookmarkImageFilled);
+  //     bookmarkClicked = true;
+  //   }
+  // }
 });
 
 const updateAmountLeft = (value) => {
