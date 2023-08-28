@@ -25,18 +25,30 @@
             <textarea
               name="form-question"
               id="form-question"
+              data-js="form-question"
               rows="5"
               cols="33"
-            >
-            </textarea>
+              maxlength="150"
+              required
+            ></textarea>
             <br />
             <label for="form-answer">Your answer:</label> <br />
-            <textarea name="form-answer" id="form-answer" rows="5" cols="33">
-            </textarea>
+            <textarea
+              name="form-answer"
+              id="form-answer"
+              data-js="form-answer"
+              rows="5"
+              cols="33"
+              maxlength="150"
+              required
+            ></textarea>
             <br />
             <label for="tag">Tag:</label>
-            <input type="text" name="tag" id="tag" /> <br />
+            <input type="text" name="tag" id="tag" required /> <br />
 
+            <small class="form__character-count"
+              ><span data-js="amountLeft"></span> characters left)</small
+            >
             <button type="submit">SUBMIT</button>
           </fieldset>
         </form>
@@ -64,6 +76,6 @@
         <img class="footer__icon" src="./assets/profile.png" alt="profile" />
       </a>
     </footer>
-    <script src="./js/form.js"></script>
+    <script type="module" src="./js/form.js"></script>
   </body>
 </html>
