@@ -15,8 +15,6 @@ export function toggleFirstBookmark() {
   let bookmarkImage = "./assets/bookmark.png";
   let bookmarkImageFilled = "./assets/bookmark_filled.png";
 
-  console.log("toggleFirstBookmark is clicked");
-
   if (bookmarkClicked) {
     bookmarkIcon.setAttribute("src", bookmarkImage);
     bookmarkClicked = false;

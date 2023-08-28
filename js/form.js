@@ -19,7 +19,6 @@ addNewForm.addEventListener("submit", (e) => {
 
   const formData = new FormData(e.target);
   const dataForm = Object.fromEntries(formData);
-  console.log("dataForm: ", dataForm);
 
   const newCard = document.createElement("section");
   newCard.classList.add("question-card");
@@ -87,8 +86,6 @@ addNewForm.addEventListener("submit", (e) => {
   function toggleFirstBookmark() {
     let bookmarkImage = "./assets/bookmark.png";
     let bookmarkImageFilled = "./assets/bookmark_filled.png";
-
-    console.log("toggleFirstBookmark is clicked");
 
     if (bookmarkClicked) {
       bookmarkIcon.setAttribute("src", bookmarkImage);
