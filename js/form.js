@@ -1,6 +1,3 @@
-// import { toggleFirstBookmark, toggleButtons } from "./common.js";
-
-// import { toggleFirstBookmark } from "./common.js";
 const card = document.querySelector('[data-js="question-card"]');
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
@@ -12,7 +9,6 @@ const questionTextareaMaxLength = questionTextarea.getAttribute("maxlength");
 const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
 
 const amountLeft = document.querySelector('[data-js="amountLeft"]');
-
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 
 let bookmarkClicked = false;
@@ -28,13 +24,6 @@ addNewForm.addEventListener("submit", (e) => {
   const newCard = document.createElement("section");
   newCard.classList.add("question-card");
   newCard.setAttribute("data-js", "question-card");
-
-  // const bookmarkIconCard = document.createElement("img");
-  // bookmarkIconCard.classList.add("question-card__icon");
-  // bookmarkIconCard.setAttribute("data-js", "question-card__icon");
-  // // img src="./assets/bookmark_filled.png"
-  // bookmarkIconCard.setAttribute("src", "./assets/bookmark.png");
-  // bookmarkIconCard.setAttribute("alt", "bookmark");
 
   const bookmarkIcon = document.createElement("img");
   bookmarkIcon.classList.add("question-card__icon");
@@ -54,8 +43,6 @@ addNewForm.addEventListener("submit", (e) => {
   answerCard.textContent = dataForm["form-answer"];
 
   bookmarkIcon.setAttribute("data-js", "question-card__icon");
-
-  // bookmarkIconCard.setAttribute("hidden", "");
 
   const tagsCard = document.createElement("div");
   tagsCard.classList.add("question-card__tags");
@@ -111,11 +98,7 @@ addNewForm.addEventListener("submit", (e) => {
       bookmarkClicked = true;
     }
   }
-
-  // dataForm["form-question"].focus();
 });
-
-// toggleFirstBookmark();
 
 const updateAmountLeft = (value) => {
   amountLeft.innerText = value;
