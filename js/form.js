@@ -1,6 +1,9 @@
-import { toggleFirstBookmark, toggleButtons } from "./common.js";
+// import { toggleFirstBookmark, toggleButtons } from "./common.js";
 
+import { toggleFirstBookmark } from "./common.js";
+const card = document.querySelector('[data-js="question-card"]');
 const cardContainer = document.querySelector('[data-js="card-container"]');
+
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
 const questionTextarea = document.querySelector('[data-js="form-question"]');
 const answerTextarea = document.querySelector('[data-js="form-answer"]');
@@ -10,7 +13,9 @@ const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
 
 const amountLeft = document.querySelector('[data-js="amountLeft"]');
 
-const bookmarkIcon = document.querySelector(".question-card__icon");
+const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
+
+let showAnswerClicked = true;
 
 if (bookmarkIcon) {
   toggleFirstBookmark();
@@ -56,27 +61,34 @@ addNewForm.addEventListener("submit", (e) => {
   tagCard.textContent = dataForm["tag"];
   tagsCard.append(tagCard);
 
-  const buttonCard = document.createElement("button");
-  buttonCard.classList.add("question-card__button");
-  buttonCard.setAttribute("data-js", "question-card__button");
-  buttonCard.textContent = "show answer";
-
-  const buttonCardHide = document.createElement("button");
-  buttonCardHide.classList.add("question-card__button");
-  buttonCardHide.setAttribute("data-js", "question-card__button");
-  buttonCardHide.setAttribute("hidden", "");
-  buttonCardHide.textContent = "hide answer";
+  const showAnswerButton = document.createElement("button");
+  showAnswerButton.classList.add("question-card__button");
+  showAnswerButton.setAttribute("data-js", "question-card__button");
+  showAnswerButton.textContent = "show answer";
 
   newCard.append(questionCard);
   newCard.append(answerCard);
   newCard.append(tagCard);
   newCard.append(bookmarkIconCard);
-  newCard.append(buttonCard);
-  newCard.append(buttonCardHide);
+  newCard.append(showAnswerButton);
 
   cardContainer.append(newCard);
 
   addNewForm.reset();
+
+  showAnswerButton.addEventListener("click", () => {
+    toggleButtons();
+  });
+
+  function toggleButtons() {
+    if (showAnswerClicked) {
+      showAnswerButton.textContent = "hide answer";
+      showAnswerClicked = false;
+    } else {
+      showAnswerButton.textContent = "show answer";
+      showAnswerClicked = true;
+    }
+  }
 
   // dataForm["form-question"].focus();
 });
@@ -85,8 +97,8 @@ addNewForm.addEventListener("submit", (e) => {
 //   toggleButtons();
 //   toggleFirstBookmark();
 // });
-toggleButtons();
-toggleFirstBookmark();
+
+// toggleFirstBookmark();
 
 const updateAmountLeft = (value) => {
   amountLeft.innerText = value;
