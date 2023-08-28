@@ -1,3 +1,5 @@
+import { toggleButtons } from "./toggleButtons.js";
+
 const card = document.querySelector('[data-js="question-card"]');
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 const showAnswerButton = document.querySelector(
@@ -24,16 +26,6 @@ export function toggleFirstBookmark() {
   }
 }
 
-export function toggleButtons() {
-  if (showAnswerClicked) {
-    showAnswerButton.innerHTML = "hide answer";
-    showAnswerClicked = false;
-  } else {
-    showAnswerButton.innerHTML = "show answer";
-    showAnswerClicked = true;
-  }
-}
-
 if (bookmarkIcon) {
   bookmarkIcon.addEventListener("click", () => {
     toggleFirstBookmark();
@@ -42,6 +34,6 @@ if (bookmarkIcon) {
 if (showAnswerButton) {
   showAnswerButton.addEventListener("click", () => {
     questionCardAnswer.toggleAttribute("hidden");
-    toggleButtons();
+    toggleButtons(showAnswerClicked, showAnswerButton);
   });
 }
