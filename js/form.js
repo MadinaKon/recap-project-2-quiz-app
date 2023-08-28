@@ -11,6 +11,10 @@ const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
 const amountLeft = document.querySelector('[data-js="amountLeft"]');
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
 
+const questionCardAnswer = document.querySelector(
+  '[data-js="question-card__answer"]'
+);
+
 let bookmarkClicked = false;
 let showAnswerClicked = true;
 
@@ -35,11 +39,11 @@ addNewForm.addEventListener("submit", (e) => {
 
   questionCard.textContent = dataForm["form-question"];
 
-  const answerCard = document.createElement("p");
-  answerCard.classList.add("question-card__answer");
-  answerCard.setAttribute("data-js", "question-card__answer");
-  answerCard.setAttribute("hidden", "");
-  answerCard.textContent = dataForm["form-answer"];
+  const questionCardAnswer = document.createElement("p");
+  questionCardAnswer.classList.add("question-card__answer");
+  questionCardAnswer.setAttribute("data-js", "question-card__answer");
+  questionCardAnswer.setAttribute("hidden", "");
+  questionCardAnswer.textContent = dataForm["form-answer"];
 
   bookmarkIcon.setAttribute("data-js", "question-card__icon");
 
@@ -56,7 +60,7 @@ addNewForm.addEventListener("submit", (e) => {
   showAnswerButton.textContent = "show answer";
 
   newCard.append(questionCard);
-  newCard.append(answerCard);
+  newCard.append(questionCardAnswer);
   newCard.append(tagCard);
   newCard.append(bookmarkIcon);
   newCard.append(showAnswerButton);
@@ -66,6 +70,7 @@ addNewForm.addEventListener("submit", (e) => {
   addNewForm.reset();
 
   showAnswerButton.addEventListener("click", () => {
+    questionCardAnswer.toggleAttribute("hidden");
     toggleButtons();
   });
 
