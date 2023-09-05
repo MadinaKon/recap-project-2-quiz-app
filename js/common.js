@@ -1,5 +1,8 @@
-const card = document.querySelector('[data-js="question-card"]');
+import { toggleButtons, toggleFirstBookmark } from "./toggleButtons.js";
+
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
+
+console.log("bookmarkIcon", bookmarkIcon);
 const showAnswerButton = document.querySelector(
   '[data-js="question-card__button"]'
 );
@@ -8,40 +11,22 @@ const questionCardAnswer = document.querySelector(
   '[data-js="question-card__answer"]'
 );
 
-let bookmarkClicked = false;
-let showAnswerClicked = true;
+// let bookmarkClicked = false;
+//let showAnswerClicked = true;
 
-export function toggleFirstBookmark() {
-  let bookmarkImage = "./assets/bookmark.png";
-  let bookmarkImageFilled = "./assets/bookmark_filled.png";
+bookmarkIcon.addEventListener("click", (event) => {
+  event.preventDefault();
+  let bookmarkImage = event.target.attributes.src.value;
 
-  if (bookmarkClicked) {
-    bookmarkIcon.setAttribute("src", bookmarkImage);
-    bookmarkClicked = false;
-  } else {
-    bookmarkIcon?.setAttribute("src", bookmarkImageFilled);
-    bookmarkClicked = true;
+  if (bookmarkImage === "./assets/bookmark.png") {
+    return bookmarkIcon.setAttribute("src", "./assets/bookmark_filled.png");
   }
-}
+  return bookmarkIcon.setAttribute("src", "./assets/bookmark.png");
+});
 
-export function toggleButtons() {
-  if (showAnswerClicked) {
-    showAnswerButton.innerHTML = "hide answer";
-    showAnswerClicked = false;
-  } else {
-    showAnswerButton.innerHTML = "show answer";
-    showAnswerClicked = true;
-  }
-}
-
-if (bookmarkIcon) {
-  bookmarkIcon.addEventListener("click", () => {
-    toggleFirstBookmark();
-  });
-}
 if (showAnswerButton) {
   showAnswerButton.addEventListener("click", () => {
     questionCardAnswer.toggleAttribute("hidden");
-    toggleButtons();
+    toggleButtons(showAnswerClicked, showAnswerButton);
   });
 }
