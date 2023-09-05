@@ -12,7 +12,7 @@ const questionCardAnswer = document.querySelector(
 );
 
 // let bookmarkClicked = false;
-//let showAnswerClicked = true;
+let showAnswerClicked = true;
 
 bookmarkIcon.addEventListener("click", (event) => {
   event.preventDefault();
