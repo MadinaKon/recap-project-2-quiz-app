@@ -1,20 +1,12 @@
 import { toggleButtons, toggleFirstBookmark } from "./toggleButtons.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
-
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
-const questionTextarea = document.querySelector('[data-js="form-question"]');
-const answerTextarea = document.querySelector('[data-js="form-answer"]');
+const form = document.querySelector('[data-js="add-new-form-card"]');
+const formFields = form.querySelectorAll('[data-js*="input"]');
+const charCount = form.querySelectorAll("[data-js*=amount-left]");
 
-const questionTextareaMaxLength = questionTextarea.getAttribute("maxlength");
-const answerTextareaMaxLength = answerTextarea.getAttribute("maxlength");
-
-const amountLeft = document.querySelector('[data-js="amountLeft"]');
 const bookmarkIcon = document.querySelector('[data-js="question-card__icon"]');
-
-// const questionCardAnswer = document.querySelector(
-//   '[data-js="question-card__answer"]'
-// );
 
 let bookmarkClicked = false;
 let showAnswerClicked = true;
@@ -104,14 +96,13 @@ addNewForm.addEventListener("submit", (e) => {
   // }
 });
 
-const updateAmountLeft = (value) => {
-  amountLeft.innerText = value;
-};
+formFields.forEach((formField, index) => {
+  charCount.forEach((output) => {
+    output.innerText = formField.maxLength;
+  });
 
-questionTextarea.addEventListener("input", (e) => {
-  updateAmountLeft(questionTextareaMaxLength - e.target.value.length);
-});
-
-answerTextarea.addEventListener("input", (e) => {
-  updateAmountLeft(answerTextareaMaxLength - e.target.value.length);
+  formField.addEventListener("input", () => {
+    const currentAmountLeft = formField.maxLength - formField.value.length;
+    charCount[index].innerText = currentAmountLeft;
+  });
 });
