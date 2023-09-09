@@ -1,13 +1,7 @@
 import { toggleButtons, toggleFirstBookmark } from "./toggleButtons.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
-
 const addNewForm = document.querySelector('[data-js="add-new-form-card"]');
-// const questionTextarea = document.querySelector('[data-js="form-question"]');
-const questionTextarea = document.querySelector('[data-js="input-question"]');
-// const answerTextarea = document.querySelector('[data-js="form-answer"]');
-const answerTextarea = document.querySelector('[data-js="input-answer"]');
-
 const form = document.querySelector('[data-js="add-new-form-card"]');
 const formFields = form.querySelectorAll('[data-js*="input"]');
 const charCount = form.querySelectorAll("[data-js*=amount-left]");
