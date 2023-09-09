@@ -25,18 +25,22 @@
             <textarea
               name="form-question"
               id="form-question"
-              data-js="form-question"
+              data-js="input-question"
               rows="5"
               cols="33"
               maxlength="150"
               required
             ></textarea>
+
+            <span class="form__character-count">
+              <span data-js="amount-left-answer"></span> characters left
+            </span>
             <br />
             <label for="form-answer">Your answer:</label> <br />
             <textarea
               name="form-answer"
               id="form-answer"
-              data-js="form-answer"
+              data-js="input-answer"
               rows="5"
               cols="33"
               maxlength="150"
@@ -52,10 +56,9 @@
               autocomplete="off"
             />
             <br />
-
-            <small class="form__character-count"
-              ><span data-js="amountLeft"></span> characters left)</small
-            >
+            <span class="form__character-count">
+              <span data-js="amount-left-answer"></span> characters left
+            </span>
             <button type="submit">SUBMIT</button>
           </fieldset>
         </form>
